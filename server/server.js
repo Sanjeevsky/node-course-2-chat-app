@@ -22,12 +22,9 @@ socket.emit('newMessage',generateMessage("Admin","Welcome to chat app"));
 
 
 
-  socket.on('createMessage',(message)=>{
-    io.emit('newMessage',{
-      from:message.from,
-      text:message.text,
-      createdAt:new Date().getTime()
-    });
+  socket.on('createMessage',(message,callback)=>{
+    io.emit('newMessage',generateMessage(message.from,message.text));
+    callback("This is From Server");
 
     // socket.broadcast.emit('newMessage',{
     //   from:message.from,
