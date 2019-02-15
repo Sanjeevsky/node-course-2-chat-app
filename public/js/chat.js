@@ -55,24 +55,17 @@ socket.on("newMessage",function(message){
   jQuery("#messages").append(html);
   scrollToBottom();
 });
-socket.on('newLocationMessage',function (message) {
-  var formattedDate=moment(message.createdAt).format('h:mm a');
-  var template=jQuery('#location-message-template').html();
-  var html=Mustache.render(template,{
-    text:message.text,
-    from:message.from,
-    createdAt:formattedDate
+socket.on('newLocationMessage', function (message) {
+  var formattedTime = moment(message.createdAt).format('h:mm a');
+  var template = jQuery('#location-message-template').html();
+  var html = Mustache.render(template, {
+    from: message.from,
+    url: message.url,
+    createdAt: formattedTime
   });
-  jQuery("#messages").append(html);
+
+  jQuery('#messages').append(html);
   scrollToBottom();
-
-  // var li=jQuery('<li></li>');
-  // var a=jQuery('<a target="_blank">My current Location</a>');
-  // li.text(`${message.from}: ${formattedDate} `);
-  // a.attr('href',message.url);
-  // li.append(a);
-  // jQuery("#messages").append(li);
-
 });
 var messageTextbox=jQuery('[name=message]');
 
@@ -85,6 +78,7 @@ jQuery("#message-form").on('submit',function(e){
     messageTextbox.val('');
   });
 });
+
 var locationButton=jQuery("#send-location");
 locationButton.on('click',function () {
   if(!navigator.geolocation){
