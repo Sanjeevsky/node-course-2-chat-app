@@ -1,4 +1,4 @@
-# Group Chat Application.
+# Group Chat Web Application.
 
 # Key Features
 It Uses Nodejs Technology to Create Server To provide Group Chatting Feature The The Users Of The Web Application.
