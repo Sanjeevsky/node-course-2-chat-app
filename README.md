@@ -1,10 +1,10 @@
 # Group Chat Application.
 
-#Key Features
+# Key Features
 It Uses Nodejs Technology to Create Server To provide Group Chatting Feature The The Users Of The Web Application.
 In Order To Get Into The Chat Room User With Have To Provide With The UserName And The Room Number In With he Want To Have Chat.
 
-#Technology Used
+# Technology Used
 <ul>
 <li>Node.js</li>
 <li>Express</li>
